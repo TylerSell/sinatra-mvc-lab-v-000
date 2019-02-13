@@ -14,10 +14,10 @@ class PigLatinizer
       word = word.slice(3..-1) + word.slice(0,3)
     elsif !vowel?(word[0]) && !vowel?(word[1])
       word = word.slice(2..-1) + word.slice(0,2)
-    elsif !vowel?(word[0])
-      word = word.slice(1..-1) + word.slice(0,1)
-    else
+    else !vowel?(word[0])
+      word = word.slice(1..-1) + word.slice(0)
     end
+    word << "ay"
     
   end
 
