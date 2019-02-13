@@ -12,7 +12,11 @@ class PigLatinizer
       word = word + "w"
     elsif !vowel?(word[0]) && !vowel?(word[1]) && !vowel?(word[2])
       word = word.slice(3..-1) + word.slice(0,3)
-    elsif 
+    elsif !vowel?(word[0]) && !vowel?(word[1])
+      word = word.slice(2..-1) + word.slice(0,2)
+    elsif !vowel?(word[0])
+      word = word.slice(1..-1) + word.slice(0,1)
+    else
     end
     
   end
