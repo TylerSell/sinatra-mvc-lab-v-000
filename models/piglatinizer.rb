@@ -16,8 +16,7 @@ def piglatinize(word)
   end
 
   def consonant?(char)
-    char.downcase
-    !char.match(/[aeiou]/)
+    !char.match(/[aAeEiIoOuU]/)
   end
 
   def to_pig_latin(sentence)
