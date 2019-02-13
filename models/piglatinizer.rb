@@ -1,6 +1,7 @@
 class PigLatinizer
   
-def piglatinize(word)
+  def piglatinize(text)
+    word = to_pig_latin(text)
     if !consonant?(word[0])
       word = word + "w"
     elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
@@ -19,13 +20,7 @@ def piglatinize(word)
 
   def to_pig_latin(text)
     words = text.split(" ")
-    words.collect {|w| piglatinize(w)}.join(" ")
-    # array = []
-    # words = text.split(" ")
-    # words.each do |word|
-    #   array << piglatinize(word)
-    # end
-    # array.join(" ")
+    words.map! {|w| piglatinize(w)}.join(" ")
   end
   
 end
