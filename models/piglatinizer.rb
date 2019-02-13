@@ -7,7 +7,6 @@ class PigLatinizer
     else !vowel?(word[0]) && !vowel?(word[1]) && !vowel?(word[2])
       word = word.slice(3..-1) + word.slice(0,3)
     end
-    binding.pry 
     
   end
   
