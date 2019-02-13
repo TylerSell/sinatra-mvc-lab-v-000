@@ -1,8 +1,6 @@
 class PigLatinizer
   
 def piglatinize(word)
-
-    #words that start with a vowel
     if !consonant?(word[0])
       word = word + "w"
     elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
@@ -19,8 +17,10 @@ def piglatinize(word)
     !char.match(/[aAeEiIoOuU]/)
   end
 
-  def to_pig_latin(sentence)
-    sentence.split.collect { |word| piglatinize(word) }.join(" ")
+  def to_pig_latin(text)
+    words = text.split(" ")
+    words.map! {|word| piglatinize(word)}
+    words.join(" ")
   end
   
 end
