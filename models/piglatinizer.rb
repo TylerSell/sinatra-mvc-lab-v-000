@@ -1,29 +1,27 @@
 class PigLatinizer
   
-  attr_accessor :word
+def piglatinize(word)
 
-  def initialize(word)
-    @word = word
-  end
-
-  def piglatinize(word)
-    # if starts with vowel add w to word
-    if vowel?(word[0])
+    #words that start with a vowel
+    if !consonant?(word[0])
       word = word + "w"
-    elsif !vowel?(word[0]) && !vowel?(word[1]) && !vowel?(word[2])
+    elsif consonant?(word[0]) && consonant?(word[1]) && consonant?(word[2])
       word = word.slice(3..-1) + word.slice(0,3)
-    elsif !vowel?(word[0]) && !vowel?(word[1])
+    elsif consonant?(word[0]) && consonant?(word[1])
       word = word.slice(2..-1) + word.slice(0,2)
-    else !vowel?(word[0])
+    else
       word = word.slice(1..-1) + word.slice(0)
     end
     word << "ay"
-    
   end
 
-  def vowel?(word)
-    word.downcase 
-    word.match(/aeiou/)
+  def consonant?(char)
+    char.downcase
+    !char.match(/[aeiou]/)
+  end
+
+  def to_pig_latin(sentence)
+    sentence.split.collect { |word| piglatinize(word) }.join(" ")
   end
   
 end
