@@ -18,12 +18,14 @@ def piglatinize(word)
   end
 
   def to_pig_latin(text)
-    array = []
     words = text.split(" ")
-    words.each do |word|
-      array << piglatinize(word)
-    end
-    array.join(" ")
+    words.collect {|w| piglatinize(w)}.join(" ")
+    # array = []
+    # words = text.split(" ")
+    # words.each do |word|
+    #   array << piglatinize(word)
+    # end
+    # array.join(" ")
   end
   
 end
